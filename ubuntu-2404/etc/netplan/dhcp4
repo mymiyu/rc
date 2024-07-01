@@ -1,6 +1,0 @@
-network:
-  ethernets:
-    enp6s18:
-      dhcp4: true
-      dhcp6: false
-  version: 2
