@@ -1,0 +1,17 @@
+# unalias all previously defined aliases
+unalias -a
+
+# generic
+alias realias='unalias -a; . ~/.zsh_aliases'
+alias grep='\grep --color=auto'
+alias l='\ls -lFGh --color=auto'
+alias ls='\ls -CFGh --color=auto'
+alias lsdir='\ls -lFh --color=auto | grep "^d"'
+alias rd='rmdir'
+alias md='mkdir'
+alias cls='clear'
+alias ssh='\ssh -XY'
+alias hh='history'
+alias tm='tmux'
+alias tml='tmux list-sessions'
+

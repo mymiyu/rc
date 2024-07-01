@@ -1,0 +1,4 @@
+function getDirName() {
+    local path="$1"
+    echo "$(dirname "${path}")"
+}

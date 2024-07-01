@@ -1,0 +1,15 @@
+function getRegTags {
+    registry=$1
+    auth=$2
+    repository=$3
+
+    taglist=$(curl -s -u $auth $registry/v2/$repository/tags/list)
+    nulltag=$(echo $taglist | jq -r '.["tags"]')
+
+    if [[ "$nulltag" == "null" ]]
+    then
+        echo "null"
+    else
+        echo $taglist | jq -r '.["tags"][]'
+    fi
+}

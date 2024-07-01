@@ -1,0 +1,4 @@
+function getFileBase() {
+    local fileName="$1"
+    echo "${fileName%.*}"
+}

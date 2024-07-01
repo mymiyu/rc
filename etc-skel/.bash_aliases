@@ -1,0 +1,12 @@
+# generic
+alias realias='unalias -a; . ~/.bash_aliases'
+alias grep='\grep --color=auto'
+alias l='\ls -lFh --color=auto'
+alias ls='\ls -CFsh --color=auto'
+alias rd='rmdir'
+alias md='mkdir'
+alias cls='clear'
+alias ssh='\ssh -X'
+alias hh='history'
+alias tm='tmux'
+alias tml='tmux --list-sessions'

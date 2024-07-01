@@ -1,0 +1,4 @@
+function getFileExt() {
+    local fileName="$1"
+    echo "${fileName##*.}"
+}

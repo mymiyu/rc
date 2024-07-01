@@ -1,0 +1,4 @@
+function getFileName() {
+    local path="$1"
+    echo "$(basename "${path}")"
+}

@@ -1,0 +1,6 @@
+function getRegRepos {
+    registry=$1
+    auth=$2
+
+    curl -s -u $auth $registry/v2/_catalog | jq -r '.["repositories"][]'
+}
