@@ -29,7 +29,7 @@ prompt_adam1_setup () {
   prompt_adam1_color2=${2:-'cyan'}
   prompt_adam1_color3=${3:-'green'}
 
-  base_prompt="%K{$prompt_adam1_color1} %n@%m%k "
+  base_prompt="%K{$prompt_adam1_color1}%n@%m%k "
   post_prompt="%b%f%k"
 
   setopt localoptions extendedglob
@@ -53,9 +53,9 @@ prompt_adam1_precmd () {
     space_left=$(( $COLUMNS - $#base_prompt_expanded_no_color - 2 ))
     path_prompt="%B%F{$prompt_adam1_color3}%${space_left}<...<%~$prompt_newline%F{white}"
   fi
-  PS1="$base_prompt$path_prompt $(virtualenv_info) %# $post_prompt"
-  PS2="$base_prompt$path_prompt $(virtualenv_info) %_> $post_prompt"
-  PS3="$base_prompt$path_prompt $(virtualenv_info) ?# $post_prompt"
+  PS1="$base_prompt$path_prompt$(virtualenv_info) %# $post_prompt"
+  PS2="$base_prompt$path_prompt$(virtualenv_info) %_> $post_prompt"
+  PS3="$base_prompt$path_prompt$(virtualenv_info) ?# $post_prompt"
 }
 
 prompt_adam1_setup "$@"
