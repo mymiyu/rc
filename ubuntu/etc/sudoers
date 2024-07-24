@@ -1,0 +1,9 @@
+# for .sudo_as_admin_successful
+Defaults    !admin_flag
+
+# admin user may gain root privilege without passwd
+admin   ALL=(ALL:ALL)   NOPASSWD: ALL
+
+# users in group sudo may gain root privilege
+%sudo   ALL=(ALL:ALL)   ALL
+
