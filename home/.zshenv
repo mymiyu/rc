@@ -20,7 +20,7 @@ export PATH
 # functions
 typeset -U FPATH
 
-if [[ -d $HOME/.zsh_functions ]]; then
+if [[ -d $HOME/.zsh_func ]]; then
     fpath=( $HOME/.zsh_func/* "${fpath[@]}" )
 #    export FPATH=$HOME/.zsh_func:$FPATH
 #    autoload -Uz $HOME/.zsh_func/**/*

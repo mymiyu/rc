@@ -23,43 +23,21 @@ function coloredText() {
     echo -e -n $coloredtext
 }
 
-function getRepos {
-    local n_args=$#
+function getRegRepos {
+    registry=$1
 
-    if [[ $n_args -eq 1 ]]; then
-        registry=$1
-        curl_opts="-s"
-    elif [[ $n_args -ge 2 ]]; then
-        registry=$1
-        auth=$2
-        curl_opts="-s -u $auth"
-    else
-        exit -1
-    fi
-
-    curl $curl_opts $registry/v2/_catalog | jq -r '.["repositories"][]'
+    curl -s $registry/v2/_catalog | jq -r '.["repositories"][]'
 }
 
-function getTags {
-    local n_args=$#
+function getRegTags {
+    registry=$1
+    repository=$2
 
-    if [[ $n_args -eq 2 ]]; then
-        registry=$1
-        repository=$2
-        curl_opts="-s"
-    elif [[ $n_args -ge 3 ]]; then
-        registry=$1
-        repository=$2
-        auth=$3
-        curl_opts="-s -u $auth"
-    else
-        exit -1
-    fi
-
-    taglist=$(curl $curl_opts $registry/v2/$repository/tags/list)
+    taglist=$(curl -s $registry/v2/$repository/tags/list)
     nulltag=$(echo $taglist | jq -r '.["tags"]')
 
-    if [[ "$nulltag" == "null" ]]; then
+    if [[ "$nulltag" == "null" ]]
+    then
         echo "null"
     else
         echo $taglist | jq -r '.["tags"][]'
@@ -79,6 +57,6 @@ while IFS= read -r repo; do
         else
             print "         :" $(coloredText $tag 'normal' 'white')
         fi
-    done <<< $(getTags $registry $repo)
-done <<< $(getRepos $registry)
+    done <<< $(getRegTags $registry $repo)
+done <<< $(getRegRepos $registry)
 

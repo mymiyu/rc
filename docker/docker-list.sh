@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-autoload -Uz getRepos getTags
+autoload -Uz getRegRepos getRegTags
 autoload -Uz coloredText
 
 registry="http://129.254.171.230:5050"
@@ -16,6 +16,6 @@ while IFS= read -r repo; do
         else
             print "         :" $(coloredText $tag 'normal' 'white')
         fi
-    done <<< $(getTags $registry $repo)
-done <<< $(getRepos $registry)
+    done <<< $(getRegTags $registry $repo)
+done <<< $(getRegRepos $registry)
 
