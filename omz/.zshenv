@@ -13,7 +13,7 @@ export LC_TIME=en_US.UTF-8
 typeset -U PATH
 
 if [[ -d $HOME/bin        ]]; then PATH=$HOME/bin:$PATH; fi
-if [[ -d $HOME/.local/bin ]]; then PATH=$HOME/.local/bin:$PATH; fi
+#if [[ -d $HOME/.local/bin ]]; then PATH=$HOME/.local/bin:$PATH; fi
 
 export PATH
 

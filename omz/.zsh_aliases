@@ -14,6 +14,8 @@ alias ssh='\ssh -XY'
 alias hh='history'
 alias tm='tmux'
 alias tml='tmux list-sessions'
+alias bat='batcat -p'
+alias gpustat='\gpustat -P'
 
 # docker
 alias di='docker images | sort'
